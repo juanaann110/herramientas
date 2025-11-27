@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas de Electrónica</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Electronicaparatodos</h1>
+    </header>
+
+    <main class="container">
+
+        <!-- Menú de Inicio -->
+        <nav id="home-menu">
+            <img src="logo.png" alt="Logo de Herramientas de Electrónica" id="brand-logo">
+            <div class="menu-cards-container">
+                <div class="menu-card" data-target="resistor-decoder">
+                    <i class="fas fa-microchip card-icon"></i>
+                    <h3>Calculadora de Resistencias</h3>
+                    <p>Decodifica el valor de las resistencias.</p>
+                </div>
+                <div class="menu-card" data-target="led-calculator">
+                    <i class="far fa-lightbulb card-icon"></i>
+                    <h3>Calculadora de LED</h3>
+                    <p>Calcula la resistencia para tus LEDs.</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenedor AISLADO para las herramientas -->
+        <div id="tools-container">
+            <!-- Calculadora de Resistencias (Oculta por defecto) -->
+            <section class="tool-card hidden" id="resistor-decoder">
+                <button class="back-button" aria-label="Volver al menú principal">← Volver</button>
+                <h2>Calculadora de resistencias</h2>
+                <div class="resistor-display">
+                    <div class="resistor-leg left"></div>
+                    <div class="resistor-body">
+                        <div class="band-selectors">
+                            <select id="band1" aria-label="Primera banda de color"></select>
+                            <select id="band2" aria-label="Segunda banda de color"></select>
+                            <select id="band3" aria-label="Tercera banda de color (Multiplicador)"></select>
+                            <select id="band4" aria-label="Cuarta banda de color (Tolerancia)"></select>
+                        </div>
+                    </div>
+                    <div class="resistor-leg right"></div>
+                </div>
+                <div id="resistor-result" class="result">
+                    <p>Selecciona los colores de las bandas.</p>
+                </div>
+            </section>
+
+            <!-- Calculadora de LED (Oculta por defecto) -->
+            <section class="tool-card hidden" id="led-calculator">
+                <button class="back-button" aria-label="Volver al menú principal">← Volver</button>
+                <h2>Calculadora de Resistencia para LED</h2>
+                <div class="form-grid">
+                    <label for="source-voltage">Voltaje de Fuente (V):</label>
+                    <input type="number" id="source-voltage" placeholder="e.g., 5">
+
+                    <label for="led-color">Color del LED:</label>
+                    <select id="led-color">
+                        <option value="2.0">Rojo (2.0V)</option>
+                        <option value="2.2">Verde (2.2V)</option>
+                        <option value="2.1">Amarillo (2.1V)</option>
+                        <option value="3.2">Azul (3.2V)</option>
+                        <option value="3.2">Blanco (3.2V)</option>
+                    </select>
+
+                    <label for="led-current">Corriente del LED (mA):</label>
+                    <input type="number" id="led-current" value="20" placeholder="e.g., 20">
+                </div>
+                <button id="calculate-led-resistor" class="cta-button">Calcular</button>
+                <div id="led-result" class="result" style="text-align: left; padding: 15px;">
+                    <p>Ingresa los valores para calcular.</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
