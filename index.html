@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Herramientas rápidas de electrónica: calculadora de bandas de resistencias y resistencia para LEDs.">
     <title>Herramientas de Electrónica</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -19,12 +20,12 @@
         <nav id="home-menu">
             <img src="logo.png" alt="Logo de Herramientas de Electrónica" id="brand-logo">
             <div class="menu-cards-container">
-                <div class="menu-card" data-target="resistor-decoder">
+                <div class="menu-card" data-target="resistor-decoder" role="button" tabindex="0">
                     <i class="fas fa-microchip card-icon"></i>
                     <h3>Calculadora de Resistencias</h3>
                     <p>Decodifica el valor de las resistencias.</p>
                 </div>
-                <div class="menu-card" data-target="led-calculator">
+                <div class="menu-card" data-target="led-calculator" role="button" tabindex="0">
                     <i class="far fa-lightbulb card-icon"></i>
                     <h3>Calculadora de LED</h3>
                     <p>Calcula la resistencia para tus LEDs.</p>
@@ -36,7 +37,7 @@
         <div id="tools-container">
             <!-- Calculadora de Resistencias (Oculta por defecto) -->
             <section class="tool-card hidden" id="resistor-decoder">
-                <button class="back-button" aria-label="Volver al menú principal">← Volver</button>
+                <button class="back-button" aria-label="Volver al menú principal" type="button">← Volver</button>
                 <h2>Calculadora de resistencias</h2>
                 <div class="resistor-display">
                     <div class="resistor-leg left"></div>
@@ -50,18 +51,18 @@
                     </div>
                     <div class="resistor-leg right"></div>
                 </div>
-                <div id="resistor-result" class="result">
+                <div id="resistor-result" class="result" aria-live="polite">
                     <p>Selecciona los colores de las bandas.</p>
                 </div>
             </section>
 
             <!-- Calculadora de LED (Oculta por defecto) -->
             <section class="tool-card hidden" id="led-calculator">
-                <button class="back-button" aria-label="Volver al menú principal">← Volver</button>
+                <button class="back-button" aria-label="Volver al menú principal" type="button">← Volver</button>
                 <h2>Calculadora de Resistencia para LED</h2>
                 <div class="form-grid">
                     <label for="source-voltage">Voltaje de Fuente (V):</label>
-                    <input type="number" id="source-voltage" placeholder="e.g., 5">
+                    <input type="number" id="source-voltage" placeholder="e.g., 5" min="0" step="0.1" autocomplete="off">
 
                     <label for="led-color">Color del LED:</label>
                     <select id="led-color">
@@ -73,10 +74,10 @@
                     </select>
 
                     <label for="led-current">Corriente del LED (mA):</label>
-                    <input type="number" id="led-current" value="20" placeholder="e.g., 20">
+                    <input type="number" id="led-current" value="20" placeholder="e.g., 20" min="0" step="0.1" autocomplete="off">
                 </div>
-                <button id="calculate-led-resistor" class="cta-button">Calcular</button>
-                <div id="led-result" class="result" style="text-align: left; padding: 15px;">
+                <button id="calculate-led-resistor" class="cta-button" type="button">Calcular</button>
+                <div id="led-result" class="result" style="text-align: left; padding: 15px;" aria-live="polite">
                     <p>Ingresa los valores para calcular.</p>
                 </div>
             </section>
